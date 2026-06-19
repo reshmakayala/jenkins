@@ -90,6 +90,61 @@ flowchart LR
 
 ## Controller vs Agent
 
+### What the Controller Does
+
+The **Jenkins Controller** (formerly called the **Master**) is the central Jenkins server responsible for managing and orchestrating the entire CI/CD workflow.
+
+Responsibilities include:
+
+* Hosting the Jenkins web UI
+* Scheduling and triggering builds
+* Managing jobs and pipelines
+* Storing configuration and build history
+* Distributing work to agents
+* Managing plugins and credentials
+
+### What Agents Do
+
+**Agents** (formerly called **Slaves**) are worker machines that execute build and deployment tasks assigned by the Controller.
+
+Common agent responsibilities:
+
+* Checking out source code
+* Compiling applications
+* Running tests
+* Building Docker images
+* Deploying applications
+* Executing custom scripts
+
+### Controller-Agent Architecture
+
+```mermaid
+flowchart LR
+    Controller[Jenkins Controller]
+
+    Agent1[Linux Agent]
+    Agent2[Windows Agent]
+    Agent3[Kubernetes Agent]
+
+    Controller --> Agent1
+    Controller --> Agent2
+    Controller --> Agent3
+```
+
+### Best Practice
+
+> Avoid running builds directly on the Controller in production environments. Use dedicated agents to improve scalability, security, and performance.
+
+| Component  | Primary Responsibility                               |
+| ---------- | ---------------------------------------------------- |
+| Controller | Manage and orchestrate Jenkins workloads             |
+| Agent      | Execute build, test, and deployment tasks            |
+| Node       | Any machine managed by Jenkins (Controller or Agent) |
+| Executor   | A build slot on a node                               |
+
+
+## Controller vs Agent
+
 | Feature                | Controller  | Agent    |
 | ---------------------- | ----------- | -------- |
 | Scheduling             | Yes         | No       |
