@@ -15,37 +15,26 @@ git branch: 'main',
     url: 'https://github.com/company/repo.git'
 ```
 
-## Maven
-
 ```groovy
+// Maven
+
 sh 'mvn clean package'
 sh 'mvn test'
-```
 
-## Gradle
-
-```groovy
+// Gradle
 sh './gradlew build'
-```
 
-## Node.js
-
-```groovy
+// Node.js
 sh 'npm ci'
 sh 'npm test'
 sh 'npm run build'
-```
 
-## Python
 
-```groovy
+// Python
 sh 'pip install -r requirements.txt'
 sh 'pytest'
-```
 
-## Docker
-
-```groovy
+// docker
 sh 'docker build -t app:latest .'
 sh 'docker push company/app:latest'
 ```
